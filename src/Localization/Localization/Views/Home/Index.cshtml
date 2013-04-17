@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@Html.Localize(@<table>
+                    <thead>
+                        <tr>
+                            <th>Header A</th>
+                            <th>Header B</th>
+                            <th>Header C</th>
+                        </tr>
+                    </thead>
+                </table>)
+                
+@Html.Localize("MyKey")
+                
+@Html.Localize(@<select name="valueName">
+                    <option>Select Option 1</option>
+                    <option>Select Option 2</option>
+                    <option>Select Option 3</option>
+                </select>)
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+</p>
