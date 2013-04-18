@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Globalization;
 using LocMvc.Configuration;
@@ -33,12 +34,12 @@ namespace LocMvc.Strategies
             if (!LocMvcConfiguration.Settings.ContainsKey("resource") || string.IsNullOrWhiteSpace(LocMvcConfiguration.Settings["resource"])) {
                 throw new ArgumentException("Resource strategy requires a resource setting be added to the 'locmvc' configuration section.", "resource");
             }
-            var resourceTypeString = LocMvcConfiguration.Settings["resource"];
-            var resourceType = Type.GetType(resourceTypeString);
-            if (resourceType == null) {
-                throw new ArgumentException(string.Format("The resource type could not be found: {0}", resourceTypeString), "resource");
+            var resourceTypeString = LocMvcConfiguration.Settings["resource"].Split(",".ToArray(), 2, StringSplitOptions.RemoveEmptyEntries);
+            if (resourceTypeString.Length < 2) {
+                throw new ArgumentException("Please configure the 'resource' string as \"[namespace].[resource], [assembly]\"");
             }
-            var manager = new ResourceManager(resourceType.FullName, resourceType.Assembly);
+            var assembly = Assembly.Load(resourceTypeString[1].Trim());
+            var manager = new ResourceManager(resourceTypeString[0], assembly);
             if (manager == null) {
                 throw new ArgumentException(string.Format("The resource type was invalid: {0}", resourceTypeString), "resource");
             }
