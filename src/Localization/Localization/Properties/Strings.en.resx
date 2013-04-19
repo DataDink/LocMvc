@@ -138,4 +138,7 @@
   <data name="MyKey" xml:space="preserve">
     <value>Some Localized Value</value>
   </data>
+  <data name="Welcome_to_ASP_NET_MVC_" xml:space="preserve">
+    <value>Welcome to ASP.NET MVC</value>
+  </data>
 </root>

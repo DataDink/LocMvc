@@ -33,7 +33,7 @@ namespace System.Web.Mvc
                             itemContext["contexttype"] = namedNode.Attribute("type").Value;
                         }
                     }
-                    var key = Service.GenerateKey(itemContext, node.Value);
+                    var key = Service.GenerateKey(itemContext, node.Value.Trim());
                     node.Value = Service.GetLocalizedString(key, node.Value);
                 }
                 return new MvcHtmlString(xml.ToString());
@@ -60,6 +60,94 @@ namespace System.Web.Mvc
             };
             var key = Service.GenerateKey(contentContext, value.ToString());
             return new MvcHtmlString(Service.GetLocalizedString(key, value.ToString()));
+        }
+    }
+}
+
+namespace System
+{
+    public static class LocalizationExtensions
+    {
+        private static readonly ILocalizationService Service = LocalizationService.Configured;
+
+        public static string Localize(this string unlocalizedString, string locale, Dictionary<string, string> context)
+        {
+            var key = Service.GenerateKey(context, unlocalizedString);
+            return Service.GetLocalizedString(key, locale, unlocalizedString);
+        }
+
+        public static string Localize(this string unlocalizedString, string locale, string context)
+        {
+            var key = Service.GenerateKey(new Dictionary<string, string> {{"contextname", context}}, locale);
+            return Service.GetLocalizedString(key, locale, unlocalizedString);
+        }
+
+        public static string Localize(this string unlocalizedString, string locale)
+        {
+            var key = Service.GenerateKey(unlocalizedString);
+            return Service.GetLocalizedString(key, locale, unlocalizedString);
+        }
+
+        public static string Localize(this string unlocalizedString, Dictionary<string, string> context)
+        {
+            var key = Service.GenerateKey(context, unlocalizedString);
+            return Service.GetLocalizedString(key, unlocalizedString);
+        }
+
+        public static string Localize(this string unlocalizedString)
+        {
+            var key = Service.GenerateKey(unlocalizedString);
+            return Service.GetLocalizedString(key, unlocalizedString);
+        }
+
+        public static string GetLocalizedValue(this string key, string locale)
+        {
+            return Service.GetLocalizedString(key, locale, null);
+        }
+
+        public static string GetLocalizedValue(this string key)
+        {
+            return Service.GetLocalizedString(key, null);
+        }
+
+        public static string Localize(this Enum value, string locale, Dictionary<string, string> context)
+        {
+            if (!context.ContainsKey("contexttype")) context.Add("contexttype", "ENUM");
+            if (!context.ContainsKey("contextname")) context.Add("contextname", value.GetType().Name);
+
+            var key = Service.GenerateKey(context, value.ToString());
+            return Service.GetLocalizedString(key, locale, value.ToString());
+        }
+
+        public static string Localize(this Enum value, string locale)
+        {
+            var context = new Dictionary<string, string> {
+                {"contexttype", "ENUM"},
+                {"contextname", value.GetType().Name}
+            };
+
+            var key = Service.GenerateKey(context, value.ToString());
+            return Service.GetLocalizedString(key, locale, value.ToString());
+        }
+
+        public static string Localize(this Enum value, Dictionary<string, string> context)
+        {
+            if (!context.ContainsKey("contexttype")) context.Add("contexttype", "ENUM");
+            if (!context.ContainsKey("contextname")) context.Add("contextname", value.GetType().Name);
+
+            var key = Service.GenerateKey(context, value.ToString());
+            return Service.GetLocalizedString(key, value.ToString());
+        }
+
+        public static string Localize(this Enum value)
+        {
+            var context = new Dictionary<string, string> {
+                {"contexttype", "ENUM"},
+                {"contextname", value.GetType().Name}
+            };
+
+            var key = Service.GenerateKey(context, value.ToString());
+            return Service.GetLocalizedString(key, value.ToString());
         }
     }
 }

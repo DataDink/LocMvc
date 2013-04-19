@@ -50,7 +50,7 @@ namespace LocMvc
 
         public string GetLocalizedString(string key, string locale, string unlocalizedText)
         {
-            var text = _strategy.GetLocalizedString(key, _defaultLocale);
+            var text = _strategy.GetLocalizedString(key, locale ?? _defaultLocale);
             var fallbackText = _displayKeys
                 ? string.Format("(UNLOCALIZED){0}", key)
                 : unlocalizedText ?? key;
