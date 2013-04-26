@@ -1,4 +1,4 @@
-NavMvc (0.0.1)
+NavMvc (0.0.3)
 =====================================
 
 by [Mark Nelson](http://www.markonthenet.com/)
@@ -51,3 +51,15 @@ For example: LocalizedString.en.resx, LocalizedString.fr.resx, LocalizedString.c
 
 
 ###See the [wiki](https://github.com/DataDink/LocMvc/wiki) for more info
+
+
+Change Log
+----------
+*4/26/13:*
+* Moved LocalizationExtensions.cs to an appropriate folder
+* Split out all extensions to the LocMvc.Extensions namespace
+* Removed configuration dependency from LocMvc.Extensions extensions
+* Reconfigured extensions in the System and System.Web.Mvc namespaces to call the LocMvc.Extension ones
+* Added a Localization container control for use with ASPX and ASCX pages. (for you non-mvc users)
+* Fixed an issue where context values were not getting sanitized with the rest of the contextual key.
+* Adding LocASP package for nuget (contains appropriate configurations).

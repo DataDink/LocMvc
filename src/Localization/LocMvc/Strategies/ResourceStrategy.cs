@@ -71,11 +71,12 @@ namespace LocMvc.Strategies
             foreach (var value in contextValues) {
                 keyBuilder.Append(string.Format("{0}_", value.Value));
             }
-            keyBuilder.Append(_keyStripper.Replace(unlocalizedText, "_"));
+            keyBuilder.Append(unlocalizedText);
             var key = keyBuilder.Length > _maxKeyLength
                 ? keyBuilder.ToString().Substring(0, _maxKeyLength)
                 : keyBuilder.ToString();
-            return key;
+            var strippedKey = _keyStripper.Replace(key, "_");
+            return strippedKey;
         }
 
         public string GetLocalizedString(string key, string locale)

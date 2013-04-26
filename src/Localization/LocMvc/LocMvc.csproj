@@ -45,10 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\LocMvcConfiguration.cs" />
+    <Compile Include="Controls\Localize.cs" />
+    <Compile Include="Extensions\XmlExtensions.cs" />
     <Compile Include="ILocalizationService.cs" />
     <Compile Include="LocalizationService.cs" />
     <Compile Include="Strategies\ILocalizationStrategy.cs" />
-    <Compile Include="LocalizationExtensions.cs" />
+    <Compile Include="Extensions\LocalizationExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strategies\ResourceStrategy.cs" />
   </ItemGroup>
