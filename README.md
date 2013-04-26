@@ -7,7 +7,7 @@ This is a .NET MVC framework package that helps organize and orchestrate localiz
 
 What it is:
 ---------------
-* Simple localization for RAZOR pages
+* Simple localization for RAZOR and ASP pages
 * Service oriented - so can be used in other project types
 * Customizable
 
