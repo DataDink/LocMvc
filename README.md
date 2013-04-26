@@ -1,4 +1,4 @@
-NavMvc (0.0.3)
+LocMvc (0.0.3) (and LocASP)
 =====================================
 
 by [Mark Nelson](http://www.markonthenet.com/)
@@ -32,6 +32,27 @@ The following example will localize an entire table header. LocMvc will identify
 							<th>Header C</th>
 						</tr>
 					</thead>)
+	<tbody>
+		<tr>
+			<td>Unlocalized user content</td>
+			<td>Unlocalized user content</td>
+			<td>Unlocalized user content</td>
+		</tr>
+	</tbody>
+</table>
+```
+(ASP version):
+```html
+<table>
+	<loc:Localize runat="server">
+		<thead>
+			<tr>
+				<th>Header A</th>
+				<th>Header B</th>
+				<th>Header C</th>
+			</tr>
+		</thead>
+	</loc:Localize>
 	<tbody>
 		<tr>
 			<td>Unlocalized user content</td>
