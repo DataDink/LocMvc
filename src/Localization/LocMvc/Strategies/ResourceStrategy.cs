@@ -64,7 +64,7 @@ namespace LocMvc.Strategies
             return max;
         }
 
-        public string GenerateKey(Dictionary<string, string> context, string unlocalizedText)
+        public virtual string GenerateKey(Dictionary<string, string> context, string unlocalizedText)
         {
             var keyBuilder = new StringBuilder();
             var contextValues = context.Where(kvp => _contextKeys.Contains(kvp.Key, StringComparer.InvariantCultureIgnoreCase)).ToArray();
@@ -79,7 +79,7 @@ namespace LocMvc.Strategies
             return strippedKey;
         }
 
-        public string GetLocalizedString(string key, string locale)
+        public virtual string GetLocalizedString(string key, string locale)
         {
             try {
                 var culture = new CultureInfo(locale);
