@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocMvc", "LocMvc\LocMvc.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizationASP", "LocalizationASP\LocalizationASP.csproj", "{BD05FC87-3945-49C4-BA93-46A435C0DE63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocAsp", "LocAsp\LocAsp.csproj", "{3D4A07B9-F5A4-4162-AE78-F28899427D64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{BD05FC87-3945-49C4-BA93-46A435C0DE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD05FC87-3945-49C4-BA93-46A435C0DE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD05FC87-3945-49C4-BA93-46A435C0DE63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4A07B9-F5A4-4162-AE78-F28899427D64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4A07B9-F5A4-4162-AE78-F28899427D64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4A07B9-F5A4-4162-AE78-F28899427D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4A07B9-F5A4-4162-AE78-F28899427D64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

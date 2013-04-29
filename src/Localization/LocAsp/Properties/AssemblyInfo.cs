@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LocMvc")]
+[assembly: AssemblyTitle("LocAsp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DataDink")]
-[assembly: AssemblyProduct("LocMvc")]
+[assembly: AssemblyProduct("LocAsp")]
 [assembly: AssemblyCopyright("Copyright © Mark Nelson 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1f3e133f-e5f0-4f58-b935-780cc06fab5e")]
+[assembly: Guid("fe97b51e-b954-4d79-9aeb-76472c1866fa")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -29,7 +29,7 @@ namespace LocMvc.Controls
 
             var parts = page.Split("/".ToArray(), StringSplitOptions.RemoveEmptyEntries);
             var action = parts.LastOrDefault() ?? "";
-            var path = parts.Length > 0 ? string.Join("/", parts.Take(parts.Length - 1)) : "";
+            var path = parts.Length > 0 ? string.Join("/", parts.Take(parts.Length - 1).ToArray()) : "";
             var context = new Dictionary<string, string> {
                 {"page", page},
                 {"action", action},
