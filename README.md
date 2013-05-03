@@ -3,7 +3,7 @@ LocMvc (0.0.3) (and LocASP)
 
 by [Mark Nelson](http://www.markonthenet.com/)
 
-This is a .NET MVC framework package that helps organize and orchestrate localization.
+This is a .NET MVC (and WebForms) framework package that helps organize and orchestrate localization.
 
 What it is:
 ---------------
@@ -15,7 +15,7 @@ What it does:
 -------------
 The purpose behind LocMvc is to have a nuget delivered package that will set your application up with working localization right out of the box.
 LocMvc wires up a localization service which hosts a localization strategy (resource-based strategy included). 
-The included HtmlHelper methods allow a very fluid integration with RAZOR-based pages.
+The included HtmlHelper methods allow a very fluid integration with RAZOR-based pages. LocASP also includes a "Localize" webform container control in place of the HtmlHelper extension methods in MVC.
 
 Out of the box:
 ---------------

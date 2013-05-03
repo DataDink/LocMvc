@@ -18,7 +18,7 @@ namespace LocMvc.Strategies
 
         private readonly int _maxKeyLength;
 
-        private readonly Regex _keyStripper = new Regex("[^a-zA-Z0-9]");
+        private readonly Regex _keyStripper = new Regex("\\s+|[^a-zA-Z0-9]");
 
         public ResourceStrategy() : this(GetResourceManager(), GetContextKeys(), GetMaxKeyLength()) {}
 
@@ -72,11 +72,11 @@ namespace LocMvc.Strategies
                 keyBuilder.Append(string.Format("{0}_", value.Value));
             }
             keyBuilder.Append(unlocalizedText);
-            var key = keyBuilder.Length > _maxKeyLength
-                ? keyBuilder.ToString().Substring(0, _maxKeyLength)
-                : keyBuilder.ToString();
-            var strippedKey = _keyStripper.Replace(key, "_");
-            return strippedKey;
+            var key = _keyStripper.Replace(keyBuilder.ToString(), "_");
+            key = key.Length > _maxKeyLength
+                ? key.Substring(0, _maxKeyLength)
+                : key;
+            return key;
         }
 
         public virtual string GetLocalizedString(string key, string locale)
